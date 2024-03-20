@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm navbar-white">
+  <div class="container">
+
+    <div class="navbar-brand w-50">
+      <img src="../../assets/img/Logo.png" class="img-fluid">
+    </div>
+
+    <button *ngIf="isusers" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div *ngIf="isusers" class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav gap-4">
+
+        <li class="nav-item">
+          <a class="nav-link border-bottom border-2" href="#">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link border-bottom border-2" href="#">About Us</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link border-bottom border-2" href="#">Gallary</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link border-bottom border-2">Our Team</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link border-bottom border-2">Contact Us</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
