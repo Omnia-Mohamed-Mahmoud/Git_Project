@@ -1,5 +1,4 @@
-import { Component, Input, input } from '@angular/core';
-import user from '../../Data/User';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',

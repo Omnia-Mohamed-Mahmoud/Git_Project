@@ -1,0 +1,177 @@
+<section class=" d-flex flex-column w-100 align-items-center pt-2">
+  <h2 class="align-self-center dark-gray-color">Registration</h2>
+  <div class="col-md-10 mx-auto">
+    <mat-horizontal-stepper labelPosition="bottom" #stepper linear>
+      <mat-step [stepControl]="RoleForm" editable="true">
+          <form [formGroup]="RoleForm" class="d-flex flex-column ">
+              <ng-template matStepLabel>
+                    Role
+              </ng-template>
+
+                <mat-form-field>
+                  <input matInput placeholder="Last name, First name"
+                        formControlName="" class="d-none"/>
+
+                  <div class="d-flex flex-column w-100">
+                    <label class ="label">Role</label>
+                    <select formControlName="Role" required class="border-0 light-lav-color" required>
+                      <option class="text-secondary" selected> Select Role</option>
+                      <option value = "client">Client</option>
+                      <option value = "ServiceProvider">Service Provider</option>
+                    </select>
+                  </div>
+
+                </mat-form-field>
+                <div *ngIf="RoleForm.get('Role')?.errors && RoleForm.get('Role')?.touched" class="text-danger">
+                  <p>Role is Required</p>
+                </div>
+                <mat-form-field>
+                  <div class="d-flex flex-column w-100">
+                    <label class ="label">Full Name</label>
+                    <input type="text" formControlName="FullName" matInput placeholder="Last name, First name" required class="border-0 light-lav-color">
+                  </div>
+                </mat-form-field>
+
+                <!-- <div *ngIf="RoleForm.get('FullName')?.errors && RoleForm.get('FullName')?.touched" class="text-danger">
+                  <p *ngIf="RoleForm.get('FullName')?.getError('required')"> FullName is Required </p>
+                </div> -->
+
+                <div class="text-start w-75 d-flex">
+                  <p class="gray-color">Already have a account?</p>
+                  <a [routerLink]="['/account/login']" class="text-decoration-none fw-bold light-lav-color ms-3">Log In</a>
+                </div>
+
+                <div class="d-flex justify-content-end flex-row mt-5 align-self-end">
+                  <button [disabled]="RoleForm.invalid" class="btn button-form px-5" matStepperNext>
+                    Next <a href="" class="fa fa-angle-right"></a>
+                  </button>
+                </div>
+
+          </form>
+      </mat-step>
+
+      <mat-step [stepControl]="PersonalDataForm">
+          <form [formGroup]="PersonalDataForm" class="d-flex flex-column">
+              <ng-template matStepLabel>
+                    Personal <br> Data
+              </ng-template>
+
+              <mat-form-field>
+                <div class="d-flex flex-column w-100">
+                  <label class ="label">SSN</label>
+                  <input  matInput type="number" formControlName="SSN" class="border-0 light-lav-color">
+                </div>
+              </mat-form-field>
+
+              <div class="d-flex flex-row justify-content-between">
+                <mat-form-field class="col-5">
+                  <div class="d-flex flex-column w-100">
+                    <label class ="label">Gender</label>
+                    <select matInput formControlName="Gender" class="border-0 light-lav-color" required>
+                      <option class="text-secondary">select your Gender</option>
+                      <option value="female">Female</option>
+                      <option value="male">Male</option>
+                    </select>
+                  </div>
+
+                  <div class="d-flex flex-column w-75 d-none">
+                    <label class ="label">SSN</label>
+                    <input disabled  matInput  class="border-0 light-lav-color">
+                  </div>
+                </mat-form-field>
+
+                <mat-form-field class="col-6">
+                  <div class="d-flex flex-column w-100">
+                    <label class ="label">Phone</label>
+                    <input formControlName="Phone" matInput type="text" class="border-0 light-lav-color">
+                  </div>
+                </mat-form-field>
+              </div>
+
+              <mat-form-field>
+                <div class="d-flex flex-column w-100">
+                  <label class ="label">Address</label>
+                  <input formControlName="Address" matInput type="text" class="border-0 light-lav-color">
+                </div>
+              </mat-form-field>
+
+              <div class="text-start w-75 d-flex">
+                <p class="gray-color">Already have a account?</p>
+                <a [routerLink]="['/account/login']" class="text-decoration-none fw-bold light-lav-color ms-3">Log In</a>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-end flex-row align-self-end">
+                  <button class="me-2 btn button-form-background-none px-5" matStepperPrevious>
+                    Back <a href="" class="fa fa-angle-right"></a>
+                  </button>
+                  <button [disabled]="PersonalDataForm.invalid" class="btn button-form px-5" matStepperNext>
+                    Next <a href="" class="fa fa-angle-right"></a>
+                  </button>
+                </div>
+              </div>
+          </form>
+      </mat-step>
+
+      <mat-step [stepControl]="ConfirmMailForm">
+        <form [formGroup]="ConfirmMailForm" class="d-flex flex-column">
+          <ng-template matStepLabel>
+            Confirm <br> Email
+          </ng-template>
+          <mat-form-field>
+
+            <div class="d-flex flex-column w-100">
+              <label class ="label">E-mail</label>
+              <input matInput formControlName="Email" type="email" class="border-0 light-lav-color">
+            </div>
+          </mat-form-field>
+
+          <mat-form-field>
+            <div class="d-flex flex-column w-100">
+              <label class ="label">UserName</label>
+              <input matInput formControlName="UserName" type="text" class="border-0 light-lav-color">
+            </div>
+          </mat-form-field>
+
+          <div class="d-flex flex-row justify-content-between">
+            <mat-form-field class="col-5">
+              <div class="d-flex flex-column w-100">
+                <label class ="label">Password</label>
+                <input matInput formControlName="Password" type="password" class="border-0  light-lav-color">
+              </div>
+            </mat-form-field>
+
+            <div *ngIf="ConfirmMailForm.get('Password')?.errors && ConfirmMailForm.get('Password')?.touched" class="text-danger text-center">
+              <p *ngIf="ConfirmMailForm.get('Password')?.getError('required')">Password is Required</p>
+              <p *ngIf="ConfirmMailForm.get('Password')?.getError('pattern')">Password must be in this format </p>
+            </div>
+
+            <mat-form-field class="col-6">
+              <div class="d-flex flex-column w-100">
+                <label class ="label">Confirm Password</label>
+                <input matInput formControlName="ConfirmPassword" type="password" class="border-0 light-lav-color">
+              </div>
+            </mat-form-field>
+          </div>
+
+          <div class="text-start w-75 d-flex">
+            <p class="gray-color">Already have a account?</p>
+            <a [routerLink]="['/account/login']" class="text-decoration-none fw-bold light-lav-color ms-3">Log In</a>
+          </div>
+
+          <div class="alert alert-danger">{{error}}</div>
+
+          <div class="d-flex justify-content-end flex-row align-self-end">
+            <button  class="me-2 btn button-form-background-none px-5" matStepperPrevious>
+              Back <a href="" class="fa fa-angle-right"></a>
+            </button>
+            <button (ngSubmit)="Submit(RoleForm,PersonalDataForm,ConfirmMailForm)" [disabled]="ConfirmMailForm.invalid" class="btn button-form px-5">
+              Submit
+            </button>
+          </div>
+
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</section>

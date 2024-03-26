@@ -1,4 +1,4 @@
-<div
+<!-- <div
   class="table-responsive"
 >
   <table
@@ -12,17 +12,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="" *ngFor="let client of clients">
+      <tr class="" *ngFor="let client of providersData">
         <td scope="row">{{client.id}}</td>
         <td>{{client.name}}</td>
         <td>{{client.role}}</td>
         <td>
-          <button (click)="show(client.id)">Show Data</button>
+          <button (click)="show(ID=client.id)">Show Data</button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+<div>
+  <input type="text" [(ngModel)]="ID">
+  <button (click)="show(ID)">Search</button>
+</div>
 
-<app-details [cli]="client" (onhide)="status=false" *ngIf="status"></app-details>
+<app-details [ID]="ID"  [cli]="client" (onhide)="status=false" *ngIf="status"></app-details> -->
 

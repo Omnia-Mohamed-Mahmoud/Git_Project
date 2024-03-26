@@ -1,0 +1,53 @@
+hr{
+  border: 1px solid;
+}
+.w-70{
+  width: 70%;
+}
+.step-link{
+  width: 25px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--light-gray-color);
+  background-color: var(--white);
+  color: var(--light-gray-color);
+  border-radius: 50%;
+  overflow: visible;
+  z-index: 100;
+}
+.step-label{
+  background-color: var(--white);
+  color: var(--light-gray-color);
+  width: 60px;
+}
+.active>span.step-link{
+  background-color: var(--light-lavandar-color);
+  color: var(--white);
+}
+.active>hr{
+  color: var(--light-lavandar-color);
+}
+.active>.step-label,button:hover>.step-label{
+  color: var(--light-lavandar-color);
+}
+button:focus>span.step-link{
+  background-color: var(--light-lavandar-color);
+  color: var(--white);
+}
+button:focus>hr{
+  color: var(--light-lavandar-color);
+}
+button:focus>.step-label,button:hover>.step-label{
+  color: var(--light-lavandar-color);
+}
+
+button:hover>span.step-link{
+  background-color: var(--white);
+  color: var(--light-lavandar-color);
+  border-color: var(--light-lavandar-color);
+}
+.w-65{
+  width: 65%;
+}

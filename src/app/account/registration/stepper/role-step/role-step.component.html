@@ -1,0 +1,28 @@
+<div class="w-100 d-flex flex-column align-self-center justify-content-center align-items-end gap-3">
+
+  <div class="d-flex flex-column w-75">
+    <label class ="label">Role</label>
+    <select class="border-top-0 border-start-0 border-end-0 input-border-color light-lav-color">
+      <option class="text-secondary" selected>select your Role</option>
+      <option value="client" >Client</option>
+      <option value="ServiceProvider">Service Provider</option>
+    </select>
+  </div>
+
+  <div class="d-flex flex-column w-75 mt-3">
+    <label class ="label">Full Name</label>
+    <input type="text" class="border-top-0 border-start-0 border-end-0 input-border-color light-lav-color">
+  </div>
+
+  <div class="text-start w-75 d-flex">
+    <p class="gray-color">Already have a account?</p>
+    <a [routerLink]="['/account/login']" class="text-decoration-none fw-bold light-lav-color ms-3">Log In</a>
+  </div>
+
+  <div class="d-flex justify-content-end flex-row mb-5 mt-4 align-self-end">
+    <button class="btn button-form px-5" cdkStepperNext>
+      Next <a href="" class="fa fa-angle-right"></a>
+    </button>
+  </div>
+</div>
+

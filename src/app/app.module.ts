@@ -1,23 +1,30 @@
-import { ServiceProviderModule } from './service-provider/service-provider.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './core/navbar/navbar.component';
-import { RequestsComponent } from './service-provider/requests/requests.component';
+
+import { ClientModule } from './client/client.module';
+import { AccountModule } from './account/account.module';
+import { ErrorComponent } from './error/error.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServiceProviderModule
+    ClientModule,
+    AccountModule
   ],
-  providers: [],
-  bootstrap: [AppComponent,RequestsComponent]
+  providers: [
+    provideAnimationsAsync()
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+
+}

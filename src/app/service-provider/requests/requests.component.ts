@@ -1,28 +1,38 @@
-import { Component } from '@angular/core';
-import { Client } from '../../_modules/client';
+ import { ServiceProviderService } from './../../services/service-provider.service';
+import { Component, OnInit } from '@angular/core';
+//import { Client } from '../../_modules/client';
+import { ServiceProvider } from '../../_modules/service-provider';
 
 @Component({
   selector: 'app-requests',
   templateUrl: './requests.component.html',
   styleUrl: './requests.component.css'
 })
-export class RequestsComponent {
-  clients:Client[] = [
-    new Client(1,"omnia","admin"),
-    new Client(2,"nada","client"),
-    new Client(3,"abdo","service-provider"),
-    new Client(4,"omnia","admin"),
-    new Client(5,"omnia","admin"),
-  ];
 
-  client:Client = new Client(0,"null","null");
+export class RequestsComponent implements OnInit{
+  //ServiceProviders:ServiceProviderService=new ServiceProviderService();
+  ID:number=1;
+
+  providersData:ServiceProvider[]=[];
+  constructor(public serv:ServiceProviderService){
+  }
+
+  ngOnInit(): void {
+    this.providersData = this.serv.getAll();
+  }
+
+  client:ServiceProvider|null = null;
   status:boolean = false;
+
+
   show(id:number){
-    for(let i = 0; i < this.clients.length ; i++){
-      if(id == this.clients[i].id){
-         this.client = this.clients[i];
-      }
-    }
+    id = this.ID;
+    // for(let i = 0; i < this.providersData.length ; i++){
+    //   if(id == this.providersData[i].id){
+    //      this.client = this.providersData[i];
+    //   }
+    // }
+    this.client=this.serv.getServiceProvider(id)
     this.status=true;
   }
 }
